@@ -1,12 +1,12 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-vector<string> reverse_string_Word(string str)
+string reverse_string_Word(string str)
 {
 
     std::cout << "Befer String : " << str<<endl;
 
-    vector<string> temp_str;
+    string temp_str;
     string re_str;
 
     for (int i = 0;i <= str.length() - 1;i++)
@@ -20,7 +20,7 @@ vector<string> reverse_string_Word(string str)
         {
             if (!re_str.empty())
             {
-                temp_str.push_back(re_str);
+                temp_str = re_str + " " + temp_str;
                 re_str.clear();
             }
         }
@@ -29,7 +29,7 @@ vector<string> reverse_string_Word(string str)
    
     if (!re_str.empty())
     {
-        temp_str.push_back(re_str);
+        temp_str = re_str + " " + temp_str;
     }
 
     return temp_str;
@@ -37,12 +37,13 @@ vector<string> reverse_string_Word(string str)
 }
 int main()
 { 
-    vector<string> recv = reverse_string_Word("Gaurav Kumar Shru");
+   string recv = reverse_string_Word("Gaurav Kumar Shru");
 
-    for (int i = recv.size()-1; i >= 0; i--)
-    {
-        std::cout << recv[i]<<" ";
-    }
+   std::cout << recv;
+    //for (int i = recv.size()-1; i >= 0; i--)
+    //{
+    //    std::cout << recv[i]<<" ";
+    //}
 
 
    
